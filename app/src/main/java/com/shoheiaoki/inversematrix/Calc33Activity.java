@@ -2,6 +2,7 @@ package com.shoheiaoki.inversematrix;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.EditText;
 
 import butterknife.ButterKnife;
@@ -9,6 +10,8 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 
 public class Calc33Activity extends Activity{
+    double matArr[][] = new double[3][3];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,8 +41,24 @@ public class Calc33Activity extends Activity{
 
     @OnClick(R.id.invert33)
     protected void invertThree(){
-
+        getNumbers();
+        putNumbers();
     }
 
+    protected void getNumbers(){
+        for (int i=0;i<matArr.length;i++){
+            for(int j=0;j<matArr[0].length;j++)
+                matArr[i][j] = j;
+        }
+        for (double[] m : matArr){
+            for(double a: m) {
+                Log.v("check if inserted", String.valueOf(a));
+            }
+        }
+    }
+
+    protected void putNumbers(){
+
+    }
 
 }
