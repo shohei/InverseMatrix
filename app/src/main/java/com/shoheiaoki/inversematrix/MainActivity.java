@@ -3,9 +3,6 @@ package com.shoheiaoki.inversematrix;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-
-import Jama.Matrix;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 

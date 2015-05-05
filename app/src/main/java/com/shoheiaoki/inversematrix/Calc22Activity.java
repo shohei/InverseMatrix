@@ -3,6 +3,9 @@ package com.shoheiaoki.inversematrix;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import java.io.IOException;
 
 import Jama.Matrix;
 import butterknife.ButterKnife;
@@ -10,7 +13,7 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 
 public class Calc22Activity extends Activity {
-    double[][] matArr = new double[2][2];
+    double[][] matArr;
     EditText[][] input = new EditText[2][2];
     EditText[][] output = new EditText[2][2];
     Matrix invMat;
@@ -57,11 +60,17 @@ public class Calc22Activity extends Activity {
     @OnClick(R.id.invert22)
     protected void invertTwo() {
         getNumbers();
-        invMat = calcInverseMatrix();
-        putNumbers(invMat);
+        try {
+            invMat = calcInverseMatrix();
+            putNumbers(invMat);
+        } catch (IOException e){
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(),"Singular Matrix",Toast.LENGTH_LONG).show();
+        }
     }
 
     protected void getNumbers() {
+        matArr = new double[2][2];
         String num = null;
         int i, j;
         for (i = 0; i < matArr.length; i++) {
@@ -69,7 +78,7 @@ public class Calc22Activity extends Activity {
                 synchronized (this) {
                     num = input[i][j].getText().toString();
                     if (num.equals("")) {
-                        break;
+                        continue;
                     } else {
                         matArr[i][j] = Double.parseDouble(num);
                     }
@@ -77,10 +86,14 @@ public class Calc22Activity extends Activity {
         }
     }
 
-    protected Matrix calcInverseMatrix() {
+    protected Matrix calcInverseMatrix() throws IOException{
         Matrix mat = new Matrix(matArr);
-        Matrix _invMat = mat.inverse();
-        return _invMat;
+        try {
+            Matrix _invMat = mat.inverse();
+            return _invMat;
+        } catch (RuntimeException e){
+            throw new IOException();
+        }
     }
 
     protected void putNumbers(Matrix _invMat) {
