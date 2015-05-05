@@ -1,11 +1,15 @@
 package com.shoheiaoki.inversematrix;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 
 import Jama.Matrix;
 import butterknife.ButterKnife;
@@ -17,12 +21,16 @@ public class Calc22Activity extends Activity {
     EditText[][] input = new EditText[2][2];
     EditText[][] output = new EditText[2][2];
     Matrix invMat;
+    private LinearLayout mainLayout;
+    private InputMethodManager inputMethodManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_two);
         ButterKnife.inject(this);
+        mainLayout = (LinearLayout)findViewById(R.id.twoLayout);
+        inputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
         initWidgets();
     }
 
@@ -59,6 +67,8 @@ public class Calc22Activity extends Activity {
 
     @OnClick(R.id.invert22)
     protected void invertTwo() {
+        inputMethodManager.hideSoftInputFromWindow(mainLayout.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        mainLayout.requestFocus();
         getNumbers();
         try {
             invMat = calcInverseMatrix();
@@ -101,8 +111,10 @@ public class Calc22Activity extends Activity {
         for (int i = 0; i < matArr.length; i++) {
             for (int j = 0; j < matArr[0].length; j++) {
                 synchronized (this) {
-                    ans = (double) _invMat.get(i, j);
-                    output[i][j].setText(String.valueOf(String.valueOf(ans)));
+                    ans = _invMat.get(i, j);
+                    BigDecimal bd = new BigDecimal(ans);
+                    BigDecimal bd_rounded = bd.setScale(2, BigDecimal.ROUND_HALF_UP);
+                    output[i][j].setText(String.valueOf(String.valueOf(bd_rounded)));
                 }
             }
         }

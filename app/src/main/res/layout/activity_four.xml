@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/fourLayout"
     android:gravity="center">
 
     <TextView
@@ -9,6 +10,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="4 x 4 matrix"
+        android:layout_marginBottom="50dp"
         android:id="@+id/textView3"
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
@@ -24,49 +26,49 @@
         <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal|numberSigned"
             android:ems="10"
             android:id="@+id/four_11" />
 
         <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal|numberSigned"
             android:ems="10"
             android:id="@+id/four_12" />
 
         <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal|numberSigned"
             android:ems="10"
             android:id="@+id/four_13" />
 
         <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal|numberSigned"
             android:ems="10"
             android:id="@+id/four_14" />
 
         <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal|numberSigned"
             android:ems="10"
             android:id="@+id/four_21" />
 
         <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal|numberSigned"
             android:ems="10"
             android:id="@+id/four_22" />
 
         <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal|numberSigned"
             android:ems="10"
             android:id="@+id/four_23" />
 
@@ -74,7 +76,7 @@
         <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal|numberSigned"
             android:ems="10"
             android:id="@+id/four_24" />
 
@@ -82,7 +84,7 @@
         <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal|numberSigned"
             android:ems="10"
             android:id="@+id/four_31" />
 
@@ -90,7 +92,7 @@
         <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal|numberSigned"
             android:ems="10"
             android:id="@+id/four_32" />
 
@@ -98,42 +100,42 @@
         <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal|numberSigned"
             android:ems="10"
             android:id="@+id/four_33" />
 
         <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal|numberSigned"
             android:ems="10"
             android:id="@+id/four_34"/>
 
         <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal|numberSigned"
             android:ems="10"
             android:id="@+id/four_41" />
 
         <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal|numberSigned"
             android:ems="10"
             android:id="@+id/four_42" />
 
         <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal|numberSigned"
             android:ems="10"
             android:id="@+id/four_43" />
 
         <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal|numberSigned"
             android:ems="10"
             android:id="@+id/four_44" />
 

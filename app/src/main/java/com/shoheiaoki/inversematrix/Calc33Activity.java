@@ -1,12 +1,16 @@
 package com.shoheiaoki.inversematrix;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 
 import Jama.Matrix;
 import butterknife.ButterKnife;
@@ -18,6 +22,8 @@ public class Calc33Activity extends Activity {
     EditText[][] input = new EditText[3][3];
     EditText[][] output = new EditText[3][3];
     Matrix invMat;
+    private LinearLayout mainLayout;
+    private InputMethodManager inputMethodManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +31,8 @@ public class Calc33Activity extends Activity {
         setContentView(R.layout.activity_three);
         ButterKnife.inject(this);
         initWidgets();
+        mainLayout = (LinearLayout)findViewById(R.id.threeLayout);
+        inputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
     }
 
     @InjectView(R.id.three_11)
@@ -89,6 +97,8 @@ public class Calc33Activity extends Activity {
 
     @OnClick(R.id.invert33)
     protected void invertThree() {
+        inputMethodManager.hideSoftInputFromWindow(mainLayout.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        mainLayout.requestFocus();
         getNumbers();
         try {
             invMat = calcInverseMatrix();
@@ -131,8 +141,10 @@ public class Calc33Activity extends Activity {
         for (int i = 0; i < matArr.length; i++) {
             for (int j = 0; j < matArr[0].length; j++) {
                 synchronized (this) {
-                    ans = (double) _invMat.get(i, j);
-                    output[i][j].setText(String.valueOf(String.valueOf(ans)));
+                    ans = _invMat.get(i, j);
+                    BigDecimal bd = new BigDecimal(ans);
+                    BigDecimal bd_rounded = bd.setScale(2, BigDecimal.ROUND_HALF_UP);
+                    output[i][j].setText(String.valueOf(String.valueOf(bd_rounded)));
                 }
             }
         }

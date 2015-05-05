@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/twoLayout"
     android:gravity="center">
 
     <TextView
@@ -10,6 +11,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="2 x 2 matrix"
         android:id="@+id/textView3hogehoge"
+        android:layout_marginBottom="50dp"
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
         />
@@ -24,28 +26,28 @@
         <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal|numberSigned"
             android:ems="10"
             android:id="@+id/two_11" />
 
         <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal|numberSigned"
             android:ems="10"
             android:id="@+id/two_12" />
 
         <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal|numberSigned"
             android:ems="10"
             android:id="@+id/two_21" />
 
         <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal|numberSigned"
             android:ems="10"
             android:id="@+id/two_22" />
 
